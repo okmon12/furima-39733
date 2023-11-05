@@ -8,7 +8,7 @@ development:
   username: root
   password:
   host: localhost
-  database: database: furima39733_development
+  database: furima39733_development
 test:
   <<: *default
   adapter: mysql2
