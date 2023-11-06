@@ -20,9 +20,8 @@
 | category             | text    | null: false                       |
 | product_description  | text    | null: false                       |
 | product_condition    | text    | null: false                       |
-| category             | text    | null: false                       |
 | price                | decimal | null: false                       |
-| delivery_time        | string  | null: false                       |
+| shipping_time        | string  | null: false                       |
 | origin_location      | string  | null: false                       |
 | shipping_fee         | decimal | null: false                       |
 | user                 | references | null: false, foreign_key: true |
