@@ -2,33 +2,37 @@
 
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
-| name               | string | null: false |
+| first_name         | string | null: false |
 | email              | string | null: false |
 | nick name          | string | null: false |
 | encrypted_password | string | null: false |
-| date_of_birth      | string | null: false |
+| birthdate          | date   | null: false |
+| last_name          | string | null: false |
+| first_kana         | string | null: false |
+| last_kana          | string | null: false |
 
 ### Association
 - has_many :items
 - has_many :buyers
 - has_one :shipping
+
+
 ## items テーブル
 
-| Column               | Type   | Options                            |
-| -------------------- | ------  | ----------------------------------|
-| product_name         | string  | null: false                       |
-| category             | text    | null: false                       |
-| product_description  | text    | null: false                       |
-| product_condition    | text    | null: false                       |
-| price                | decimal | null: false                       |
-| shipping_time        | string  | null: false                       |
-| origin_location      | string  | null: false                       |
-| shipping_fee         | decimal | null: false                       |
-| user                 | references | null: false, foreign_key: true |
-| buyer                | references | null: false, foreign_key: true |
+| Column                  | Type    | Options                           |
+| ----------------------  | ------- | ----------------------------------|
+| product_name_id         | string  | null: false                       |
+| category                | text    | null: false                       |
+| product_description_id  | text    | null: false                       |
+| product_condition_id    | text    | null: false                       |
+| price_id                | decimal | null: false                       |
+| shipping-address-form_id| string  | null: false                       |
+| origin_location_id      | string  | null: false                       |
+| shipping_fee_id         | decimal | null: false                       |
+| user                    | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :buyers
+- has_many : buyers
 - belongs_to :user
 
 
@@ -37,27 +41,26 @@
 | Column       | Type       | Options                           |
 | ------------ | ---------- | --------------------------------- |
 | user         | references |  null: false, foreign_key: true   |
-| product_name | references |  null: false, foreign_key: true   |
-| shipping     | references |  null: false, foreign_key: true   |
+| item         | references |  null: false, foreign_key: true   |
 
 ### Association
-- has_many :items
+- belongs_to :item
 - belongs_to :user
-- belongs_to :shipping
+- has_many :shippings
 
 
 ## shippings テーブル
 
-| Column               | Type       | Options                        |
-| -------------------- | ---------- | ------------------------------ |
-| shipping_city        | text       | null: false                    |
-| shipping_street      | text       | null: false                    |
-| shipping_prefecture  | text       | null: false                    |
-| shipping_building    | text       | null: false                    |
-| shipping_phone       | text       | null: false                    |
-| shipping_postal_code | text       | null: false                    |
-| user                 | references | null: false, foreign_key: true |
+| Column               | Type         | Options                        |
+| -------------------- | ------------ | ------------------------------ |
+| shipping_city        | string       | null: false                    |
+| shipping_street      | string       | null: false                    |
+| shipping_prefecture  | string       | null: false                    |
+| shipping_building    | string       | null: false                    |
+| shipping_phone       | string       | null: false                    |
+| shipping_postal_code | string       | null: false                    |
+| user                 | references   | null: false, foreign_key: true |
 
 ### Association
-- has_many :buyers
+- belongs_to :buyer
 - belongs_to :user
