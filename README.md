@@ -1,29 +1,28 @@
 ## users テーブル
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| first_name         | string | null: false |
-| email              | string | null: false |
-| nick name          | string | null: false |
-| encrypted_password | string | null: false |
-| birthdate          | date   | null: false |
-| last_name          | string | null: false |
-| first_kana         | string | null: false |
-| last_kana          | string | null: false |
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| first_name         | string | null: false               |
+| email              | string | null: false, unique: true |
+| nickname           | string | null: false               |
+| encrypted_password | string | null: false               |
+| birthdate          | date   | null: false               |
+| last_name          | string | null: false               |
+| first_kana         | string | null: false               |
+| last_kana          | string | null: false               |
 
 ### Association
 - has_many :items
 - has_many :buyers
-- has_one :shipping
 
 
 ## items テーブル
 
 | Column                  | Type    | Options                           |
 | ----------------------  | ------- | ----------------------------------|
-| product_name_id         | string  | null: false                       |
+| product_name            | string  | null: false                       |
 | category                | text    | null: false                       |
-| product_description_id  | text    | null: false                       |
+| product_description     | text    | null: false                       |
 | product_condition_id    | text    | null: false                       |
 | price_id                | decimal | null: false                       |
 | shipping-address-form_id| string  | null: false                       |
@@ -46,21 +45,22 @@
 ### Association
 - belongs_to :item
 - belongs_to :user
-- has_many :shippings
+- belongs_to :shipping
 
 
 ## shippings テーブル
 
-| Column               | Type         | Options                        |
-| -------------------- | ------------ | ------------------------------ |
-| shipping_city        | string       | null: false                    |
-| shipping_street      | string       | null: false                    |
-| shipping_prefecture  | string       | null: false                    |
-| shipping_building    | string       | null: false                    |
-| shipping_phone       | string       | null: false                    |
-| shipping_postal_code | string       | null: false                    |
-| user                 | references   | null: false, foreign_key: true |
+| Column                  | Type         | Options                        |
+| ------------------------| ------------ | ------------------------------ |
+| shipping_city_id        | string       | null: false                    |
+| shipping_street_id      | string       | null: false                    |
+| shipping_prefecture_id  | string       | null: false                    |
+| shipping_building_id    | string       |                                |
+| shipping_phone_id       | string       | null: false                    |
+| shipping_postal_code_id | string       | null: false                    |
+| buyers                  | string       | null: false                              |      |
+
 
 ### Association
 - belongs_to :buyer
-- belongs_to :user
+
