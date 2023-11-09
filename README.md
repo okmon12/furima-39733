@@ -22,7 +22,7 @@
 | ----------------------  | ------- | ----------------------------------|
 | product_name            | string  | null: false                       |
 | category_id             | integer | null: false                       |
-| product_description_id  | integer | null: false                       |
+| product_description     | integer | null: false                       |
 | product_condition_id    | integer | null: false                       |
 | price                   | integer | null: false                       |
 | shipping_address_form_id| integer | null: false                       |
@@ -31,7 +31,7 @@
 | user                    | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :buyer
+- has_one :buyer
 - belongs_to :user
 
 
@@ -43,7 +43,7 @@
 | item         | references |  null: false, foreign_key: true   |
 
 ### Association
-- has_many :items
+- belongs_to :item
 - belongs_to :user
 - has_one :shipping
 
@@ -53,6 +53,8 @@
 | Column                  | Type         | Options                        |
 | ------------------------| ------------ | ------------------------------ |
 | shipping_address_form_id| integer      | null: false                    |
+| shipping_city           | string       | null: false                    |
+| shipping_street         | string       | null: false                    |
 | shipping_building       | string       |                                |
 | shipping_phone          | string       | null: false                    |
 | shipping_postal_code    | string       | null: false                    |
