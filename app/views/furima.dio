@@ -85,7 +85,7 @@
                 <mxCell id="49" value="shipping_fee_id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="11" vertex="1">
                     <mxGeometry y="266" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="20" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;startArrow=ERone;startFill=0;endArrow=ERone;endFill=0;" parent="1" source="15" edge="1">
+                <mxCell id="20" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;startArrow=ERmany;startFill=0;endArrow=ERone;endFill=0;" parent="1" source="15" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="160" y="370" as="targetPoint"/>
                         <Array as="points"/>

@@ -13,7 +13,7 @@
 
 ### Association
 - has_many :items
-- has_one :buyer
+- has_many :buyers
 
 
 ## items テーブル
@@ -22,7 +22,7 @@
 | ----------------------  | ------- | ----------------------------------|
 | product_name            | string  | null: false                       |
 | category_id             | integer | null: false                       |
-| product_description     | integer | null: false                       |
+| product_description     | text    | null: false                       |
 | product_condition_id    | integer | null: false                       |
 | price                   | integer | null: false                       |
 | shipping_address_form_id| integer | null: false                       |
