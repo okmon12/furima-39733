@@ -13,7 +13,7 @@
 
 ### Association
 - has_many :items
-- has_many :buyers
+- has_one :buyer
 
 
 ## items テーブル
@@ -21,17 +21,17 @@
 | Column                  | Type    | Options                           |
 | ----------------------  | ------- | ----------------------------------|
 | product_name            | string  | null: false                       |
-| category                | text    | null: false                       |
-| product_description     | text    | null: false                       |
-| product_condition_id    | text    | null: false                       |
-| price_id                | decimal | null: false                       |
-| shipping-address-form_id| string  | null: false                       |
-| origin_location_id      | string  | null: false                       |
-| shipping_fee_id         | decimal | null: false                       |
+| category_id             | integer | null: false                       |
+| product_description_id  | integer | null: false                       |
+| product_condition_id    | integer | null: false                       |
+| price                   | integer | null: false                       |
+| shipping_address_form_id| integer | null: false                       |
+| origin_location_id      | integer | null: false                       |
+| shipping_fee_id         | integer | null: false                       |
 | user                    | references | null: false, foreign_key: true |
 
 ### Association
-- has_many : buyers
+- belongs_to :buyer
 - belongs_to :user
 
 
@@ -43,22 +43,20 @@
 | item         | references |  null: false, foreign_key: true   |
 
 ### Association
-- belongs_to :item
+- has_many :items
 - belongs_to :user
-- belongs_to :shipping
+- has_one :shipping
 
 
 ## shippings テーブル
 
 | Column                  | Type         | Options                        |
 | ------------------------| ------------ | ------------------------------ |
-| shipping_city_id        | string       | null: false                    |
-| shipping_street_id      | string       | null: false                    |
-| shipping_prefecture_id  | string       | null: false                    |
-| shipping_building_id    | string       |                                |
-| shipping_phone_id       | string       | null: false                    |
-| shipping_postal_code_id | string       | null: false                    |
-| buyers                  | string       | null: false                              |      |
+| shipping_address_form_id| integer      | null: false                    |
+| shipping_building       | string       |                                |
+| shipping_phone          | string       | null: false                    |
+| shipping_postal_code    | string       | null: false                    |
+| buyer                   | references   | null: false, foreign_key:true |
 
 
 ### Association
