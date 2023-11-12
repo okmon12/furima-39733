@@ -7,7 +7,7 @@ FactoryBot.define do
     last_kana             {'イイイ'}
     birthdate             {Date.today}
     email                 {Faker::Internet.email}
-    password    {Faker::Internet.password(min_length: 6)}
+    password    {'1a' + Faker::Internet.password(min_length: 6)}
     password_confirmation {password}
   end
 end
