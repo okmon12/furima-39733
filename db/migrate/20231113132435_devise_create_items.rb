@@ -4,8 +4,7 @@ class DeviseCreateItems < ActiveRecord::Migration[7.0]
   def change
     create_table :items do |t|
       ## Database authenticatable
-      t.string :email, null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
+    
       t.string :product_name, null: false 
       t.text :product_description,  null: false 
       t.integer :category_id, null: false
@@ -45,8 +44,7 @@ class DeviseCreateItems < ActiveRecord::Migration[7.0]
       t.timestamps null: false
     end
 
-    add_index :items, :email,                unique: true
-    add_index :items, :reset_password_token, unique: true
+  
     # add_index :items, :confirmation_token,   unique: true
     # add_index :items, :unlock_token,         unique: true
   end
