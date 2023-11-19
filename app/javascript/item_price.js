@@ -14,8 +14,8 @@ priceInput.addEventListener("input", () => {
   let profit = inputAmount - taxAmount;
   let roundedProfit = Math.floor(profit); 
 
-  addTaxDom.innerHTML = "販売手数料は " + roundedTaxAmount + " 円です";
-  profitDom.innerHTML = "販売利益は " + roundedProfit + " 円です";
+  addTaxDom.innerHTML =  roundedTaxAmount ;
+  profitDom.innerHTML =  roundedProfit ;
  });
 });
 

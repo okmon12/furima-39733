@@ -7,7 +7,7 @@ RSpec.describe Item, type: :model do
 
   describe '商品出品機能' do
     context '商品登録ができる時' do
-      it 'product_name,product_description,category_id,origin_location_id,product_condition_id,shipping_address_form_id,shipping_fee_id,priceが存在すれば登録できる' do
+      it 'product_name,product_description,category_id,origin_location_id,product_condition_id,shipping_address_form_id,shipping_fee_id,price,imageが存在すれば登録できる' do
         expect(@item).to be_valid
       end
     end
@@ -22,31 +22,30 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Product description can't be blank")
       end
-      it 'category_idが空では登録できない' do
-        @item.category_id = ''
+      it 'category_idが未選択では登録できない' do
+        @item.category_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category can't be blank", 'Category is not a number')
+        expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
-      it 'origin_location_idが空では登録できない' do
-        @item.origin_location_id = ''
+      it 'origin_location_idが未選択では登録できない' do
+        @item.origin_location_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Origin location can't be blank", 'Origin location is not a number')
+        expect(@item.errors.full_messages).to include("Origin location must be other than 1")
       end
-      it 'product_condition_idが空では登録できない' do
-        @item.product_condition_id = ''
+      it 'product_condition_idが未選択では登録できない' do
+        @item.product_condition_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Product condition can't be blank", 'Product condition is not a number')
+        expect(@item.errors.full_messages).to include("Product condition must be other than 1")
       end
-      it 'shipping_address_form_idが空では登録できない' do
-        @item.shipping_address_form_id = ''
+      it 'shipping_address_form_idが未選択では登録できない' do
+        @item.shipping_address_form_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping address form can't be blank",
-                                                      'Shipping address form is not a number')
+        expect(@item.errors.full_messages).to include("Shipping address form must be other than 1")
       end
-      it 'shipping_fee_idが空では登録できない' do
-        @item.shipping_fee_id = ''
+      it 'shipping_fee_idが未選択では登録できない' do
+        @item.shipping_fee_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping fee can't be blank", 'Shipping fee is not a number')
+        expect(@item.errors.full_messages).to include("Shipping fee must be other than 1")
       end
       it 'priceが空では登録できない' do
         @item.price = ''
@@ -57,18 +56,28 @@ RSpec.describe Item, type: :model do
       it '価格が300以下では登録できない' do
         @item.price = '299'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
+        expect(@item.errors.full_messages).to include('Price は半角数値で入力してください')
       end
 
       it '価格が9,999,999以上では登録できない' do
         @item.price = '10000000'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
+        expect(@item.errors.full_messages).to include('Price は半角数値で入力してください')
       end
       it '価格が全角数字では登録できない' do
         @item.price = '１０００'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price is not a number')
+        expect(@item.errors.full_messages).to include('Price は半角数値で入力してください')
+      end
+      it '商品画像が空だと登録できない' do
+        @item.image = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Image can't be blank")
+      end
+      it 'ユーザーが紐づいていないと登録できない' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors[:user]).to include('must exist')
       end
     end
   end
