@@ -1,13 +1,19 @@
 # frozen_string_literal: true
 
-class DeviseCreateUsers < ActiveRecord::Migration[7.0]
+class DeviseCreateItems < ActiveRecord::Migration[7.0]
   def change
-    create_table :users do |t|
+    create_table :items do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
-      t.string :nickname, null: false
-      t.string :birthday, null: false
+    
+      t.string :product_name, null: false 
+      t.text :product_description,  null: false 
+      t.integer :category_id, null: false
+      t.integer :product_condition_id, null: false        
+      t.integer :shipping_address_form_id, null: false
+      t.integer :origin_location_id, null: false
+      t.integer :shipping_fee_id, null: false
+      t.integer :price, null: false 
+      t.references :user, null: false, foreign_key: true
 
       ## Recoverable
       t.string   :reset_password_token
@@ -38,9 +44,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.timestamps null: false
     end
 
-    add_index :users, :email,                unique: true
-    add_index :users, :reset_password_token, unique: true
-    # add_index :users, :confirmation_token,   unique: true
-    # add_index :users, :unlock_token,         unique: true
+  
+    # add_index :items, :confirmation_token,   unique: true
+    # add_index :items, :unlock_token,         unique: true
   end
 end
