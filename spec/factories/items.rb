@@ -8,7 +8,9 @@ FactoryBot.define do
     origin_location_id        { '2' }
     shipping_fee_id           { '2' }
     price                     { '555' }
-    image                     { Rack::Test::UploadedFile.new(Rails.root.join('spec', 'fixtures', 'test_image.jpg'), 'image/jpeg') }
+    image                     do
+      Rack::Test::UploadedFile.new(Rails.root.join('spec', 'fixtures', 'test_image.jpg'), 'image/jpeg')
+    end
     association :user
   end
 end

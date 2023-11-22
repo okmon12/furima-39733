@@ -17,5 +17,6 @@ class Item < ApplicationRecord
   validates :shipping_address_form_id, presence: true, numericality: { other_than: 1 }
   validates :origin_location_id, presence: true, numericality: { other_than: 1 }
   validates :shipping_fee_id, presence: true, numericality: { other_than: 1 }
-  validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, only_integer: true, message: 'は半角数値で入力してください' }
+  validates :price, presence: true,
+                    numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, only_integer: true, message: 'は半角数値で入力してください' }
 end

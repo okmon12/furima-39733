@@ -25,27 +25,27 @@ RSpec.describe Item, type: :model do
       it 'category_idが未選択では登録できない' do
         @item.category_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category must be other than 1")
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
       it 'origin_location_idが未選択では登録できない' do
         @item.origin_location_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Origin location must be other than 1")
+        expect(@item.errors.full_messages).to include('Origin location must be other than 1')
       end
       it 'product_condition_idが未選択では登録できない' do
         @item.product_condition_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Product condition must be other than 1")
+        expect(@item.errors.full_messages).to include('Product condition must be other than 1')
       end
       it 'shipping_address_form_idが未選択では登録できない' do
         @item.shipping_address_form_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping address form must be other than 1")
+        expect(@item.errors.full_messages).to include('Shipping address form must be other than 1')
       end
       it 'shipping_fee_idが未選択では登録できない' do
         @item.shipping_fee_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping fee must be other than 1")
+        expect(@item.errors.full_messages).to include('Shipping fee must be other than 1')
       end
       it 'priceが空では登録できない' do
         @item.price = ''
