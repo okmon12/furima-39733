@@ -42,8 +42,7 @@ class ItemsController < ApplicationController
   end
 
   def redirect_if_not_owner
-    item = Item.find(params[:id])
-    redirect_to root_path unless user_signed_in? && item.user_id == current_user.id
+    redirect_to root_path unless user_signed_in? && @item.user_id == current_user.id
   rescue ActiveRecord::RecordNotFound
     redirect_to root_path
   end
