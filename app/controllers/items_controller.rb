@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :redirect_if_not_owner, only: [:edit]
+  before_action :set_item, only: [:show, :edit, :update]
   def index
     @items = Item.order(created_at: :desc)
   end
@@ -10,11 +11,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def create
@@ -27,13 +26,13 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to @item
     else
       render :edit
     end
   end
+
   private
 
   def item_params
@@ -46,5 +45,9 @@ class ItemsController < ApplicationController
     redirect_to root_path unless user_signed_in? && item.user_id == current_user.id
   rescue ActiveRecord::RecordNotFound
     redirect_to root_path
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
