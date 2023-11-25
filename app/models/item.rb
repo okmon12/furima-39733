@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   belongs_to :shipping_address_form
   belongs_to :shipping_fee
   belongs_to :user
+  has_one :buyer
 
   validates :product_name, presence: true
   validates :product_description, presence: true
