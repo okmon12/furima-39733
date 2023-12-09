@@ -1,6 +1,7 @@
 class ShippingsController < ApplicationController
   before_action :authenticate_user!, only: [:index]
   def index 
+    gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
     @buyer_shipping = BuyerShipping.new   
     @buyer = current_user
     @buyer_id = @buyer.id
@@ -22,7 +23,8 @@ class ShippingsController < ApplicationController
       pay_item
       redirect_to root_path
     else
-      render :index
+      gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
+      render :index, status: :unprocessable_entity
     end
   end
   private
