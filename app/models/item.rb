@@ -1,15 +1,19 @@
 class Item < ApplicationRecord
   has_one_attached :image
   validates :image, presence: true
-
+  has_one :buyer
+  belongs_to :user
+  def sold_out?
+    buyer.present?
+  end
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
   belongs_to :origin_location
   belongs_to :product_condition
   belongs_to :shipping_address_form
   belongs_to :shipping_fee
-  belongs_to :user
-  has_one :buyer
+ 
+ 
 
   validates :product_name, presence: true
   validates :product_description, presence: true

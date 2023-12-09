@@ -51,6 +51,7 @@ class ShippingAddressForm < ActiveHash::Base
   ]
   include ActiveHash::Associations
   has_many :items
+  has_many :shippings
   include ActiveModel::Validations
   validates :shipping_address_form_id, numericality: { other_than: 1, message: "can't be blank" }
 end
