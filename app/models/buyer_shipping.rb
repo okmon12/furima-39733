@@ -11,9 +11,9 @@ class BuyerShipping
     validates :user_id
     validates :item_id
     validates :token
-  
+    validates :shipping_address_form_id, numericality: { other_than: 1 }
   end
-    validates :shipping_address_form_id, presence: true, numericality: { other_than: 1 }
+    
 
     def save 
     
