@@ -1,6 +1,6 @@
 class BuyerShipping
   include ActiveModel::Model
-  attr_accessor :shipping_city, :shipping_street, :shipping_building, :shipping_phone, :shipping_postal_code, :shipping_address_form_id, :buyer_id, :user_id, 
+  attr_accessor :shipping_city, :shipping_street, :shipping_building, :shipping_phone, :shipping_postal_code, :shipping_address_form_id, :user_id, 
                  :item_id, :token
   
   with_options presence: true do 

@@ -12,10 +12,8 @@ class ShippingsController < ApplicationController
   end
 
   def create    
-    @shippings = Shipping.all
     @item = Item.find(params[:item_id])
     @buyer_shipping = BuyerShipping.new(buyer_shipping_params)
-    @item_id = params[:item_id]
     @buyer = current_user
     @buyer_id = @buyer.id
     if @buyer_shipping.valid?
@@ -30,7 +28,6 @@ class ShippingsController < ApplicationController
   private
   
   def buyer_shipping_params
-    buyer_id = current_user.id
     item_id = params[:item_id]
     params.require(:buyer_shipping).permit(:shipping_city, :shipping_street, :shipping_phone, :shipping_postal_code, :shipping_address_form_id, :shipping_building 
             ).merge(user_id: current_user.id, item_id: item_id, token: params[:token])
