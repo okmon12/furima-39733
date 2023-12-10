@@ -14,7 +14,7 @@
 ### Association
 - has_many :items
 - has_many :buyers
-
+  has_many :buyer_shippings
 
 ## items テーブル
 
@@ -55,7 +55,7 @@
 | shipping_address_form_id| integer      | null: false                    |
 | shipping_city           | string       | null: false                    |
 | shipping_street         | string       | null: false                    |
-| shipping_building       | string       |                                |
+|   shipping_building     | string       |                                |
 | shipping_phone          | string       | null: false                    |
 | shipping_postal_code    | string       | null: false                    |
 | buyer                   | references   | null: false, foreign_key:true |
