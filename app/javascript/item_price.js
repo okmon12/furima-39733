@@ -3,19 +3,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const addTaxDom = document.getElementById("add-tax-price");
   const profitDom = document.getElementById("profit");
 
-priceInput.addEventListener("input", () => {
-  let inputAmount = parseFloat(priceInput.value); 
+  priceInput.addEventListener("input", () => {
+    let inputAmount = parseFloat(priceInput.value); 
 
-  let taxPercentage = 0.1; 
+    let taxPercentage = 0.1; 
 
-  let taxAmount = inputAmount * taxPercentage; 
-  let roundedTaxAmount = Math.floor(taxAmount); 
+    let taxAmount = inputAmount * taxPercentage; 
+    let roundedTaxAmount = Math.floor(taxAmount); 
 
-  let profit = inputAmount - taxAmount;
-  let roundedProfit = Math.floor(profit); 
+    let profit = inputAmount - taxAmount;
+    let roundedProfit = Math.floor(profit); 
 
-  addTaxDom.innerHTML =  roundedTaxAmount;
-  profitDom.innerHTML =  roundedProfit;
- });
+    addTaxDom.innerHTML = '¥' + roundedTaxAmount;
+    profitDom.innerHTML = '¥' + roundedProfit;
+  });
 });
-
