@@ -14,8 +14,8 @@ priceInput.addEventListener("input", () => {
   let profit = inputAmount - taxAmount;
   let roundedProfit = Math.floor(profit); 
 
-  addTaxDom.innerHTML =  roundedTaxAmount ;
-  profitDom.innerHTML =  roundedProfit ;
+  addTaxDom.innerHTML =  roundedTaxAmount;
+  profitDom.innerHTML =  roundedProfit;
  });
 });
 

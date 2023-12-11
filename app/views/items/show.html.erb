@@ -17,7 +17,7 @@
      </div>
     <div class="item-price-box">
       <span class="item-price">
-        <%= @item.price %>円
+        ￥<%= @item.price %>
       </span>
       <span class="item-postage">
         <% shipping_fee = ShippingFee.find(@item.shipping_fee.id) %>
@@ -62,13 +62,13 @@
         </tr>
         <tr>
           <th class="detail-item">発送元の地域</th>
-          <td class="detail-value"><% origin_location = OriginLocation.find(@item.origin_location.id) %>
-                    <%= origin_location.name %></td>
+          <td class="detail-value"><% shipping_address_form = ShippingAddressForm.find(@item.shipping_address_form.id) %>
+                    <%= shipping_address_form.name %></td>
         </tr>
         <tr>
           <th class="detail-item">発送日の目安</th>
-          <td class="detail-value"><% shipping_address_form = ShippingAddressForm.find(@item.shipping_address_form.id) %>
-                    <%= shipping_address_form.name %></td>
+          <td class="detail-value"><% origin_location = OriginLocation.find(@item.origin_location.id) %>
+                    <%= origin_location.name %></td>
         </tr>
       </tbody>
     </table>
