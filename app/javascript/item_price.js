@@ -11,10 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let taxAmount = inputAmount * taxPercentage; 
     let roundedTaxAmount = Math.floor(taxAmount); 
 
-    let profit = inputAmount - taxAmount;
-    let roundedProfit = Math.floor(profit); 
+    let profit = inputAmount - roundedTaxAmount;
 
     addTaxDom.innerHTML = '¥' + roundedTaxAmount;
-    profitDom.innerHTML = '¥' + roundedProfit;
+    profitDom.innerHTML = '¥' + profit.toFixed(0);
   });
 });
