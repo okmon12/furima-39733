@@ -1,0 +1,30 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        first_name: 苗字
+        nickname: ニックネーム
+        birthdate: 誕生日
+        last_name: 名前
+        first_kana: 苗字（仮名）
+        last_kana: 名前（仮名）
+      item:  
+        product_name: 商品名
+        product_description: 商品説明
+        category_id: カテゴリー
+        product_condition_id: 商品の状態
+        origin_location_id: 発送日
+        shipping_fee_id: 送料
+        price: 金額
+        shipping_address_form_id: 都道府県
+        image: 画像
+  activemodel:
+    attributes:
+      buyer_shipping:
+        token: トークン
+        shipping_city: 市町村
+        shipping_street: 番地
+        shipping_phone: 電話番号
+        shipping_postal_code: 郵便番号
+        shipping_address_form_id: 都道府県
+        
