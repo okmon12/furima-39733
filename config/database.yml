@@ -19,5 +19,8 @@ test:
 
 production:
   <<: *default
-  adapter: postgresql
-  url: <%= ENV['DATABASE_URL'] %>
+  adapter: mysql2
+  username: root
+  password: (パスワードなし)
+  host: localhost
+  database: furima39733_production
