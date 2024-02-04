@@ -91,4 +91,3 @@ gem 'pry-rails'
 gem 'gon'
 gem 'rails-i18n'
 gem "aws-sdk-s3", require: false
-gem 'mysql2'
