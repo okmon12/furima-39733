@@ -338,6 +338,8 @@ GEM
       nokogiri (~> 1.8)
     zeitwerk (2.6.12)
 
+PLATFORMS
+  x86_64-linux
 
 DEPENDENCIES
   active_hash
