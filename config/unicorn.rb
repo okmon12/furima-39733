@@ -32,9 +32,10 @@ check_client_connection false
 run_once = true
 
 before_fork do |server, worker|
-  defined?(ActiveRecord::Base) &&
+  if defined?(ActiveRecord::Base)
     ActiveRecord::Base.connection.disconnect!
-
+  end
+  
   if run_once
     run_once = false # prevent from firing again
   end
